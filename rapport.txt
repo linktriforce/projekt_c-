@@ -1,4 +1,5 @@
 1. Övergripande design: beskriv klasser och funktioner, och deras relationer till varandra.
+    - Pre-processor av ordlista - separat klass som enbart syftar till att ta ordlista och ta ut alla ord som är fem tecken långa (utan specialtecken).
 Testklasser:
  - test_wordle_words (5 char, no special signs)
 
