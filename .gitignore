@@ -4,3 +4,6 @@
 
 # Ignore compiled binaries
 /bin/
+
+#IDE
+/.vscode
