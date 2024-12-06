@@ -1,0 +1,6 @@
+#Ignore compiled files
+*.d
+*.o
+
+# Ignore compiled binaries
+/bin/
