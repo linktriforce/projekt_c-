@@ -1,0 +1,8 @@
+1. Övergripande design: beskriv klasser och funktioner, och deras relationer till varandra.
+
+2. En kort användarinstruktion: hur bygger och testar man programmet? Försök att paketera
+så mycket som möjligt med regler i makefilen. Det underlättar både under ert arbete och
+gör att denna instruktion blir väldigt enkel att skriva.
+
+3. Brister och kommentarer: Finns det något i lösning som du i efterhand anser borde gjorts
+annorlunda? Andra kommentarer?
