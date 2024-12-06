@@ -18,6 +18,8 @@ CXXFLAGS += $(DEPFLAGS)
 LDFLAGS =   -g 
 # CXXFLAGS += -fsanitize=address
 # LDFLAGS += -fsanitize=address
+# CXXFLAGS += -fsanitize=address
+# LDFLAGS += -fsanitize=address
 
 
 #CPPFLAGS += -stdlib=libc++
@@ -25,14 +27,15 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS = main
+PROGS = main test_wordle_solver
 
 all: $(PROGS)
 
-test: 
+test: test_wordle_solver.o
 
 # Targets rely on implicit rules for compiling and linking
-main: main.o
+main: main.o wordle_solver.o
+test_wordle_solver: test_wordle_solver.o wordle_solver.o
 
 preprocessor: preprocessor.o
 
