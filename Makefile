@@ -4,8 +4,15 @@
 CXX = /usr/bin/g++
 CC  = $(CXX)
 
+# Directories for object files and dependency files
+OBJ_DIR = build
+DEP_DIR = deps
+
+# Ensure the object and dependency directories exist
+$(shell mkdir -p $(OBJ_DIR) $(DEP_DIR))
+
 # Generate dependencies in *.d files
-DEPFLAGS = -MT $@ -MMD -MP -MF $*.d
+DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
 
 # Define preprocessor, compiler, and linker flags. Uncomment the # lines
 # if you use clang++ and wish to use libc++ instead of GNU's libstdc++.
@@ -18,38 +25,32 @@ CXXFLAGS += $(DEPFLAGS)
 LDFLAGS =   -g 
 # CXXFLAGS += -fsanitize=address
 # LDFLAGS += -fsanitize=address
-# CXXFLAGS += -fsanitize=address
-# LDFLAGS += -fsanitize=address
-
-
-#CPPFLAGS += -stdlib=libc++
-#CXXFLAGS += -stdlib=libc++
-#LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS = main test_wordle_solver
+PROGS = $(OBJ_DIR)/main $(OBJ_DIR)/preprocessor
 
 all: $(PROGS)
 
-test: test_wordle_solver.o
+test: $(OBJ_DIR)/test_wordle_solver.o $(OBJ_DIR)/wordle_solver.o
 
 # Targets rely on implicit rules for compiling and linking
-main: main.o wordle_solver.o
-test_wordle_solver: test_wordle_solver.o wordle_solver.o
-
-preprocessor: preprocessor.o
+$(OBJ_DIR)/preprocessor: $(OBJ_DIR)/preprocessor.o
+$(OBJ_DIR)/main: $(OBJ_DIR)/main.o $(OBJ_DIR)/wordle_solver.o
 
 # Phony targets
 .PHONY: all test clean distclean
 
 # Standard clean
 clean:
-	rm -f *.o $(PROGS)
+	rm -f $(OBJ_DIR)/*.o $(PROGS)
 
 distclean: clean
-	rm *.d
-
+	rm -f $(DEP_DIR)/*.d
 
 # Include the *.d files
 SRC = $(wildcard *.cc)
--include $(SRC:.cc=.d)
+-include $(SRC:.cc=$(DEP_DIR)/.d)
+
+# Rule for building object files and placing them in OBJ_DIR
+$(OBJ_DIR)/%.o: %.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@

@@ -11,8 +11,8 @@
 
 using std::string;
 
-const string inputFile{"dict-words.txt"};
-const string outputFile{"fiveLetterWords.txt"};
+const string inputFile{"/textfiles/dict-words.txt"};
+const string outputFile{"/textfiles/fiveLetterWords.txt"};
 
 int main () {
 

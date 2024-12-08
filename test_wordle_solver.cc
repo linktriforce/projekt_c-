@@ -23,10 +23,3 @@ bool test_contains()
     //TODO: Should there be a case when false is returned? Test always pass if all assert pass.
     return true;
 }
-
-int main()
-{
-    if (test_contains()) std::cout << "Test passed!";
-    
-    return 0;
-}
