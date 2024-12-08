@@ -1,38 +1,44 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // For std::find, std::any_of
-
+#include <algorithm>
+#include <map>
 
 #include "wordle_solver.h"
 
 /**
- * Gray tile
- * @returns true if the string s contains any of the characters in cs,
+ * Check for gray tiles
+ * @returns true if the string s contains any of the characters in the string char_set,
  */
-bool wordle_solver::contains_any_of(const std::string& s, const std::string& cs) {
-    if (s.length() != 5 || cs.length() != 5) return false;
-    
-    for (char c : cs) {
-        if (s.find(c) != std::string::npos) {
+bool wordle_solver::contains_any_of(const string &s, const string &char_set)
+{
+    if (s.length() != 5 || char_set.length() != 5)
+        return false;
+
+    for (char c : char_set)
+    {
+        if (s.find(c) != string::npos)
+        {
             return true;
         }
     }
     return false;
-} 
+}
 
 /**
- * Green tile
+ * Check for green tiles
  * @return true if the string s has the character c at position pos
- */ 
-bool wordle_solver::contains_at(const std::string& s, char c, string::size_type pos) {
+ */
+bool wordle_solver::contains_at(const string &s, char c, size_type pos)
+{
     return s.find(c) == pos;
 }
 
 /**
- * Yellow
+ * Check for yellow tiles
  * @return return true if string s contains c but at any other position than pos,
  */
-bool wordle_solver::contains_but_not_at(const std::string& s, char c, string::size_type pos) {
-    //Om char finns i string och den ligger på fel ställe
-    return s.find(c) != std::string::npos && s.find(c) != pos;
+bool wordle_solver::contains_but_not_at(const string &s, char c, size_type pos)
+{
+    // If c exist in s and it in the wrong pos
+    return s.find(c) != string::npos && s.find(c) != pos;
 }
