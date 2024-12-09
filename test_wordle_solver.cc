@@ -30,7 +30,7 @@ bool test_contains()
     assert(!contains_but_not_at(word_first, 'f', 3)); //False: Doesn't contain 'f' at all.
 
     //TEST correct_fn
-    std::map<size_type, string> correct;
+    letters_and_indices correct;
     correct.insert(wordpair(1, "a"));
     correct.insert(wordpair(2, "b"));
     correct_fn cfn{correct};
@@ -39,7 +39,7 @@ bool test_contains()
     assert(!cfn("acfb"));
 
     //TEST misplaced_fn
-    std::map<size_type, string> misplaced;
+    letters_and_indices misplaced;
     misplaced.insert(wordpair(0, "abc"));
     misplaced.insert(wordpair(1, "g"));
     misplaced_fn mfn(misplaced);
@@ -57,6 +57,15 @@ bool test_contains()
     assert(!inv("afgde")); //FALSE, all letters gray, different indexes
     assert(no_grey("abcde")); //If no grey, all should pass
 
+/**
+ * To test that the function reading the list works
+ */
+#if 0
+    std::vector<std::string> wordlist{getFiveLetterWords()};
+    for(string s : wordlist) {
+        std::cout << s << std::endl;
+    }
+#endif
     
     //TODO: Should there be a case when false is returned? Test always pass if all assert pass.
     return true;
