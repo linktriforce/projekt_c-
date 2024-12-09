@@ -24,10 +24,17 @@ letters_and_indices build_list(const std::string &line)
         if (ss >> index)
         {
             ss.ignore(); // skip space
-            char letter[2];
+            string letter;
             if (ss >> letter)
             {
-                map.insert({index, string(letter)}); // Type conversion. Safe?
+                if (map.find(index) != map.end())
+                {
+                    map.at(index).append(letter);
+                }
+                else
+                {
+                    map.insert({index, letter});
+                }
             }
             ss.ignore(); // skip space
         }
@@ -69,8 +76,8 @@ int main()
 
     // Instanciate functors
     invalid_letters_fn invalid_letters_fn(std::get<0>(tiles)); // user input
-    correct_fn correct_fn(std::get<1>(tiles));           // user input
-    misplaced_fn misplaced_fn(std::get<2>(tiles));      // user input
+    correct_fn correct_fn(std::get<1>(tiles));                 // user input
+    misplaced_fn misplaced_fn(std::get<2>(tiles));             // user input
 
     std::set<string> possible_words;
     return 0;
