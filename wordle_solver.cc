@@ -46,7 +46,7 @@ bool contains_any_of(const string &s, const string &char_set)
  */
 bool contains_at(const string &s, char c, size_type pos)
 {
-    return s.find(c) == pos;
+    return s[pos] == c;
 }
 
 /**
