@@ -51,7 +51,7 @@ std::tuple<std::string, letters_and_indices, letters_and_indices> prompt()
     auto corr = build_list(correct);
 
     std::string misplaced;
-    std::cout << "enter misplaced letters (letter index)* e.g '2 c 3 d':\n";
+    std::cout << "enter misplaced letters (letter index)* e.g '0 p 0 r':\n";
     std::getline(std::cin, misplaced);
     auto misp = build_list(misplaced);
 
