@@ -1,5 +1,6 @@
 #include <string>
 #include <map>
+#include <vector>
 
 using std::string;
 using size_type = string::size_type;
@@ -10,6 +11,8 @@ using wordpair = std::pair<size_type, string>;
 bool contains_any_of(const string &s, const string &cs);
 bool contains_at(const string &s, char c, size_type pos);
 bool contains_but_not_at(const string &s, char c, size_type pos);
+
+std::vector<std::string> getFiveLetterWords();
 
 struct invalid_letters_fn // osäker på syftet av wrong_fn
 {

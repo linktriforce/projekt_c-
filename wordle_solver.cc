@@ -1,7 +1,24 @@
 #include <iostream>
+#include <fstream>
 #include <algorithm>
 
 #include "wordle_solver.h"
+
+/**
+ * Turns the fiveLetterWords.txt and turns in into a vector of strings
+ * @return std::vector<std::string> containing the five letter words
+ */
+std::vector<std::string> getFiveLetterWords() {
+    std::ifstream file("textfiles/fiveLetterWords.txt");
+    std::string word;
+    std::vector<std::string> fiveLetterWords;
+
+    while(file >> word) {
+        fiveLetterWords.push_back(word);
+    }
+
+    return fiveLetterWords;
+}
 
 /**
  * Check for gray tiles

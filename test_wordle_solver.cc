@@ -57,6 +57,15 @@ bool test_contains()
     assert(!inv("afgde")); //FALSE, all letters gray, different indexes
     assert(no_grey("abcde")); //If no grey, all should pass
 
+/**
+ * To test that the function reading the list works
+ */
+#if 0
+    std::vector<std::string> wordlist{getFiveLetterWords()};
+    for(string s : wordlist) {
+        std::cout << s << std::endl;
+    }
+#endif
     
     //TODO: Should there be a case when false is returned? Test always pass if all assert pass.
     return true;
