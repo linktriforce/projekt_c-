@@ -86,6 +86,6 @@ bool misplaced_fn::operator() (const string &c) {
     return true;
 }
 
-// bool exclude_word::operator() (const string &word) {
-//     return !(w(word) && c(w) && m(w));
-// }
+bool exclude_word::operator() (const string &word) {
+    return !(w(word) && c(word) && m(word));    
+}
