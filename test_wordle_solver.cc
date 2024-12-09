@@ -30,7 +30,7 @@ bool test_contains()
     assert(!contains_but_not_at(word_first, 'f', 3)); //False: Doesn't contain 'f' at all.
 
     //TEST correct_fn
-    std::map<size_type, string> correct;
+    letters_and_indices correct;
     correct.insert(wordpair(1, "a"));
     correct.insert(wordpair(2, "b"));
     correct_fn cfn{correct};
@@ -39,7 +39,7 @@ bool test_contains()
     assert(!cfn("acfb"));
 
     //TEST misplaced_fn
-    std::map<size_type, string> misplaced;
+    letters_and_indices misplaced;
     misplaced.insert(wordpair(0, "abc"));
     misplaced.insert(wordpair(1, "g"));
     misplaced_fn mfn(misplaced);
