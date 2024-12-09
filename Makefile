@@ -23,8 +23,8 @@ CXXFLAGS += -std=c++11
 CXXFLAGS += -g
 CXXFLAGS += $(DEPFLAGS)
 LDFLAGS =   -g 
-# CXXFLAGS += -fsanitize=address
-# LDFLAGS += -fsanitize=address
+CXXFLAGS += -fsanitize=address
+LDFLAGS += -fsanitize=address
 
 # Targets
 PROGS = $(OBJ_DIR)/main $(OBJ_DIR)/preprocessor
