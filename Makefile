@@ -18,7 +18,7 @@ DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
 # if you use clang++ and wish to use libc++ instead of GNU's libstdc++.
 # -g is for debugging.
 CPPFLAGS =  -std=c++11 -I.
-CXXFLAGS =  -O2 -Wall -Wextra -pedantic-errors -Wold-style-cast #No optimization activated (-O0). -O2 is with optimization
+CXXFLAGS =  -O0 -Wall -Wextra -pedantic-errors -Wold-style-cast #No optimization activated (-O0). -O2 is with optimization
 CXXFLAGS += -std=c++11
 CXXFLAGS += -g
 CXXFLAGS += $(DEPFLAGS)
