@@ -5,6 +5,8 @@ using std::string;
 using size_type = string::size_type;
 using letters_and_indices = std::map<size_type, string>;
 
+using wordpair = std::pair<size_type, string>;
+
 bool contains_any_of(const string &s, const string &cs);
 bool contains_at(const string &s, char c, size_type pos);
 bool contains_but_not_at(const string &s, char c, size_type pos);

@@ -122,4 +122,5 @@ int main()
     //     std::cout << "Contains a gray letter\n";
     // }
     return 0;
+
 }
