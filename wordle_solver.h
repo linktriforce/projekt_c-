@@ -37,3 +37,16 @@ struct misplaced_fn
 private:
     letters_and_indices m;
 };
+
+struct exclude_word
+{
+    exclude_word(const std::string &wrong,
+                 const letters_and_indices &correct,
+                 const letters_and_indices &misplaced): w{wrong}, c{correct}, m{misplaced} {};
+    bool operator()(const std::string &w);
+
+private:
+    invalid_letters_fn w;
+    correct_fn c;
+    misplaced_fn m;
+};
