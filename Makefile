@@ -18,24 +18,26 @@ DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
 # if you use clang++ and wish to use libc++ instead of GNU's libstdc++.
 # -g is for debugging.
 CPPFLAGS =  -std=c++11 -I.
-CXXFLAGS =  -O0 -Wall -Wextra -pedantic-errors -Wold-style-cast #No optimization activated (-O0). -O2 is with optimization
+CXXFLAGS =  -O2 -Wall -Wextra -pedantic-errors -Wold-style-cast #No optimization activated (-O0). -O2 is with optimization
 CXXFLAGS += -std=c++11
 CXXFLAGS += -g
 CXXFLAGS += $(DEPFLAGS)
 LDFLAGS =   -g 
-CXXFLAGS += -fsanitize=address
-LDFLAGS += -fsanitize=address
+# CXXFLAGS += -fsanitize=address
+# LDFLAGS += -fsanitize=address
 
 # Targets
 PROGS = $(OBJ_DIR)/main $(OBJ_DIR)/preprocessor
 
 all: $(PROGS)
 
-test: $(OBJ_DIR)/test_wordle_solver.o $(OBJ_DIR)/wordle_solver.o
+test_wordle_solver: test_wordle_solver.o wordle_solver.o
+
+main: main.o wordle_solver.o
+
+preprocessor: $(OBJ_DIR)/preprocessor.o
 
 # Targets rely on implicit rules for compiling and linking
-$(OBJ_DIR)/preprocessor: $(OBJ_DIR)/preprocessor.o
-$(OBJ_DIR)/main: $(OBJ_DIR)/main.o $(OBJ_DIR)/wordle_solver.o
 
 # Phony targets
 .PHONY: all test clean distclean

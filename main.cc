@@ -14,8 +14,7 @@ const string inputFile = "/fiveLetterWords.txt";
 int main()
 {
     std::ifstream input(inputFile);
-    wordle_solver solver;
-    wordle_solver::invalid_letters_fn invalid_letters_fn("abcde"); //wrong_fn
+    invalid_letters_fn invalid_letters_fn("abcde"); //wrong_fn
     if (invalid_letters_fn("ghija"))                     
     {
         std::cout << "Doesnt contain a gray letter";
@@ -24,4 +23,5 @@ int main()
     {
         std::cout << "Contains a gray letter\n";
     }
+    return 0;
 }
