@@ -2,10 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <map>
-#include <set>
-#include <set>
 #include <fstream>
-#include <sstream>
 #include <sstream>
 #include "wordle_solver.h"
 
@@ -73,12 +70,11 @@ int main()
 {
 
     auto tiles = prompt();
-
-    // Instanciate functors
-    invalid_letters_fn invalid_letters_fn(std::get<0>(tiles)); // user input
-    correct_fn correct_fn(std::get<1>(tiles));                 // user input
-    misplaced_fn misplaced_fn(std::get<2>(tiles));             // user input
-
-    std::set<string> possible_words;
+    exclude_word o(std::get<0>(tiles), std::get<1>(tiles), std::get<2>(tiles));
+    std::vector<string> possible_words(getFiveLetterWords());
+    possible_words.erase(std::remove_if(possible_words.begin(), possible_words.end(), o), possible_words.end());
+    for (string w : possible_words) {
+        std::cout << w << "\n";
+    }
     return 0;
 }
