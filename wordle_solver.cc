@@ -68,3 +68,7 @@ bool misplaced_fn::operator() (const string &c) {
     }
     return true;
 }
+
+bool include_word::operator() (const string &w) {
+    return false;
+}
