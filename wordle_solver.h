@@ -41,9 +41,9 @@ private:
     letters_and_indices m;
 };
 
-struct include_word
+struct exclude_word
 {
-    include_word(const std::string &wrong,
+    exclude_word(const std::string &wrong,
                  const letters_and_indices &correct,
                  const letters_and_indices &misplaced): w{wrong}, c{correct}, m{misplaced} {};
     bool operator()(const std::string &w);
