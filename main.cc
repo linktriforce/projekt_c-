@@ -68,7 +68,6 @@ const string inputFile = "textfiles/fiveLetterWords.txt";
 
 int main()
 {
-
     auto tiles = prompt();
     exclude_word o(std::get<0>(tiles), std::get<1>(tiles), std::get<2>(tiles));
     std::vector<string> possible_words(getFiveLetterWords());

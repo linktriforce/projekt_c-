@@ -35,7 +35,7 @@ test_wordle_solver: test_wordle_solver.o wordle_solver.o
 
 main: main.o wordle_solver.o
 
-preprocessor: $(OBJ_DIR)/preprocessor.o
+preprocessor: preprocessor.o
 
 # Targets rely on implicit rules for compiling and linking
 
@@ -44,10 +44,10 @@ preprocessor: $(OBJ_DIR)/preprocessor.o
 
 # Standard clean
 clean:
-	rm -f $(OBJ_DIR)/*.o $(PROGS)
+	rm -f *.o $(PROGS)
 
 distclean: clean
-	rm -f $(DEP_DIR)/*.d
+	rm -f *.d
 
 # Include the *.d files
 SRC = $(wildcard *.cc)
