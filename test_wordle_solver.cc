@@ -1,6 +1,7 @@
 #include "wordle_solver.h"
 #include <cassert>
 #include <iostream>
+#include <algorithm>
 
 
 bool test_contains();
@@ -57,11 +58,21 @@ bool test_contains()
     assert(!inv("afgde")); //FALSE, all letters gray, different indexes
     assert(no_grey("abcde")); //If no grey, all should pass
 
-/**
- * To test that the function reading the list works
- */
-#if 0
     std::vector<std::string> wordlist{getFiveLetterWords()};
+    std::string wrongLetters{"crtin"};
+    letters_and_indices correctLetters;
+    correctLetters.insert(wordpair(0, "a"));
+    correctLetters.insert(wordpair(1, "l"));
+    correctLetters.insert(wordpair(3, "e"));
+    letters_and_indices misplaceLetters;
+    misplaceLetters.insert(wordpair(0, "l"));
+    misplaceLetters.insert(wordpair(1, "e"));
+    misplaceLetters.insert(wordpair(4, "a"));
+    exclude_word excl(wrongLetters, correctLetters, misplaceLetters);
+    
+    wordlist.erase(std::remove_if(wordlist.begin(), wordlist.end(), excl), wordlist.end());
+
+#if 1
     for(string s : wordlist) {
         std::cout << s << std::endl;
     }
