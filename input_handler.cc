@@ -7,10 +7,6 @@ void toLowerCase(std::string &s)
                    { return std::tolower(c); });
 }
 
-/**
- * Reads the file and finds all five letter words
- * @return std::vector<std::string> containing five letter words
- */
 std::vector<std::string> getFiveLetterWords(const string &filename)
 {
     std::ifstream file(filename);
