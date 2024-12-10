@@ -1,12 +1,5 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <map>
-#include <fstream>
-#include <sstream>
-#include <cctype>
-
 #include "wordle_solver.h"
+#include "input_handler.h"
 
 using std::string;
 

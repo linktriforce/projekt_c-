@@ -2,6 +2,8 @@
 #include <string>
 #include <map>
 #include <iostream>
+#include <fstream>
+#include <regex>
 
 using std::string;
 using size_type = string::size_type;

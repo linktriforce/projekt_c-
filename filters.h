@@ -2,6 +2,7 @@
 #include <map>
 #include <vector>
 #include <sstream>
+#include <regex>
 
 using std::string;
 using size_type = string::size_type;
