@@ -75,7 +75,10 @@ std::tuple<std::string, letters_and_indices, letters_and_indices> prompt()
 
 int main()
 {
-    std::vector<string> possible_words(getFiveLetterWords());
+    std::cout << "Enter path to file: " << std::endl;
+    string inputFile;
+    std::cin >> inputFile;
+    std::vector<string> possible_words(getFiveLetterWords(inputFile));
     do
     {
         auto tiles = prompt();
@@ -99,17 +102,13 @@ int main()
 bool anotherIteration()
 {
     std::string keepCheating;
-    std::cout << "Would you like to continue cheating? (y/n)\n";
-    std::getline(std::cin, keepCheating);
-            toLowerCase(keepCheating);
-
-
-    while (keepCheating != "y" && keepCheating != "n")
+    do
     {
-        std::cout << "Wrong input! Try again.\n";
         std::cout << "Would you like to continue cheating? (y/n)\n";
         std::getline(std::cin, keepCheating);
-    }
+        toLowerCase(keepCheating);
+        std::cout << "Wrong input! Try again.\n";
+    } while (keepCheating != "y" && keepCheating != "n")
 
-    return keepCheating == "y";
+            return keepCheating == "y";
 }
