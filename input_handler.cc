@@ -3,7 +3,6 @@
 
 void toLowerCase(std::string &s)
 {
-    std::getline(std::cin, s);
     std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c)
                    { return std::tolower(c); });
 }
@@ -30,14 +29,13 @@ std::vector<std::string> getFiveLetterWords(const string &filename)
     {
         if (std::regex_match(word, req))
         {
-            std::transform(word.begin(), word.end(), word.begin(), [](unsigned char c) { 
-                return std::tolower(c); 
-            });
+            std::transform(word.begin(), word.end(), word.begin(), [](unsigned char c)
+                           { return std::tolower(c); });
 
             fiveLetterWords.push_back(word);
         }
     }
-    
+
     return fiveLetterWords;
 }
 
@@ -46,31 +44,34 @@ bool anotherIteration()
     std::string keepCheating;
     do
     {
-                keepCheating.clear();
-
         std::cout << "Would you like to continue cheating? (y/n)\n";
         std::getline(std::cin, keepCheating);
         toLowerCase(keepCheating);
         std::cout << "Wrong input! Try again.\n";
     } while (keepCheating != "y" && keepCheating != "n");
 
-            return keepCheating == "y";
+    return keepCheating == "y";
 }
 
 std::tuple<std::string, letters_and_indices, letters_and_indices> prompt()
 {
     std::string wrong;
     std::cout << "enter wrong letters:\n";
+    std::getline(std::cin, wrong);
     toLowerCase(wrong);
 
     std::string correct;
     std::cout << "enter correct letters (letter index)* e.g '2 c 3 d':\n";
+    std::getline(std::cin, wrong);
     toLowerCase(correct);
+
     auto corr = build_list(correct);
 
     std::string misplaced;
     std::cout << "enter misplaced letters (letter index)* e.g '0 p 0 r':\n";
+    std::getline(std::cin, wrong);
     toLowerCase(misplaced);
+
     auto misp = build_list(misplaced);
 
     return {wrong, corr, misp};
