@@ -1,20 +1,26 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
+#include <regex>
 
 #include "wordle_solver.h"
 
 /**
- * Turns the fiveLetterWords.txt and turns in into a vector of strings
- * @return std::vector<std::string> containing the five letter words
+ * Reads the file and finds all five letter words
+ * @return std::vector<std::string> containing five letter words
  */
-std::vector<std::string> getFiveLetterWords() {
-    std::ifstream file("textfiles/fiveLetterWords.txt");
+std::vector<std::string> getFiveLetterWords(const string& filename) {
+    std::ifstream file(filename);
     std::string word;
     std::vector<std::string> fiveLetterWords;
 
+    std::regex req("^[a-zA-Z]{5}$");
+
     while(file >> word) {
-        fiveLetterWords.push_back(word);
+        if (std::regex_match(word, req)) {
+            toLowerCase(word);
+            fiveLetterWords.push_back(word);
+        }
     }
 
     return fiveLetterWords;
