@@ -12,7 +12,9 @@ bool contains_any_of(const string &s, const string &cs);
 bool contains_at(const string &s, char c, size_type pos);
 bool contains_but_not_at(const string &s, char c, size_type pos);
 
-std::vector<std::string> getFiveLetterWords();
+std::vector<std::string> getFiveLetterWords(const string& filename);
+
+void toLowerCase(std::string &s);
 
 struct wrong_fn // osäker på syftet av wrong_fn
 {
