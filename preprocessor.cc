@@ -18,7 +18,17 @@ const string outputFile{"textfiles/fiveLetterWords.txt"};
 int main()
 {
 
+#if 0
     std::ifstream input(inputFile);
+#elif 1
+    std::cout << "Enter path to file: " << std::endl;
+    string file;
+    std::cin >> file;
+    std::ifstream input(file);
+    if (!input.is_open()) {
+        std::cerr << "File '" << file << "' does not exist";
+    }
+#endif
     std::ofstream output(outputFile);
 
     std::regex req("^[a-zA-Z]{5}$"); // Five letter words containing only letters A-Z, big or small.

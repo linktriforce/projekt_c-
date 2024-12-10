@@ -59,7 +59,7 @@ bool contains_but_not_at(const string &s, char c, size_type pos)
     return s.find(c) != string::npos && s.find(c) != pos;
 }
 
-bool invalid_letters_fn::operator() (const string &c) {
+bool wrong_fn::operator() (const string &c) {
     if (l.length() > 0) {
         return !contains_any_of(c, l);
     } else {
@@ -86,6 +86,6 @@ bool misplaced_fn::operator() (const string &c) {
     return true;
 }
 
-bool exclude_word::operator() (const string &word) {
+bool exclude_word_fn::operator() (const string &word) {
     return !(w(word) && c(word) && m(word));    
 }

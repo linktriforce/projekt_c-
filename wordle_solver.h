@@ -14,9 +14,9 @@ bool contains_but_not_at(const string &s, char c, size_type pos);
 
 std::vector<std::string> getFiveLetterWords();
 
-struct invalid_letters_fn // osäker på syftet av wrong_fn
+struct wrong_fn // osäker på syftet av wrong_fn
 {
-    invalid_letters_fn(const string &letters) : l{letters} {}
+    wrong_fn(const string &letters) : l{letters} {}
     bool operator()(const string &c);
 
 private:
@@ -41,15 +41,15 @@ private:
     letters_and_indices m;
 };
 
-struct exclude_word
+struct exclude_word_fn
 {
-    exclude_word(const std::string &wrong,
-                 const letters_and_indices &correct,
-                 const letters_and_indices &misplaced): w{wrong}, c{correct}, m{misplaced} {};
+    exclude_word_fn(const std::string &wrong,
+                    const letters_and_indices &correct,
+                    const letters_and_indices &misplaced) : w{wrong}, c{correct}, m{misplaced} {};
     bool operator()(const std::string &w);
 
 private:
-    invalid_letters_fn w;
+    wrong_fn w;
     correct_fn c;
     misplaced_fn m;
 };
