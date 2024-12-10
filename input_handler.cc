@@ -44,11 +44,10 @@ bool anotherIteration()
     std::string keepCheating;
     do
     {
-        std::cout << "Would you like to continue cheating? (y/n)\n";
-        std::getline(std::cin, keepCheating);
-        toLowerCase(keepCheating);
-        std::cout << "Wrong input! Try again.\n";
+        std::cout << "Would you like to continue cheating? (y/n)" << std::endl;
+        std::cin >> keepCheating;
     } while (keepCheating != "y" && keepCheating != "n");
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     return keepCheating == "y";
 }
