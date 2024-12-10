@@ -5,11 +5,10 @@ CXX = /usr/bin/g++
 CC  = $(CXX)
 
 # Directories for object files and dependency files
-OBJ_DIR = build
 DEP_DIR = deps
 
 # Ensure the object and dependency directories exist
-$(shell mkdir -p $(OBJ_DIR) $(DEP_DIR))
+$(shell mkdir -p $(DEP_DIR))
 
 # Generate dependencies in *.d files
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
@@ -27,7 +26,7 @@ LDFLAGS =   -g
 #LDFLAGS += -fsanitize=address
 
 # Targets
-PROGS = $(OBJ_DIR)/main $(OBJ_DIR)/preprocessor
+PROGS = main test_wordle_solver
 
 all: $(PROGS)
 
