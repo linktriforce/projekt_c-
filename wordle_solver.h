@@ -11,6 +11,8 @@ using wordpair = std::pair<size_type, string>;
 bool contains_any_of(const string &s, const string &cs);
 bool contains_at(const string &s, char c, size_type pos);
 bool contains_but_not_at(const string &s, char c, size_type pos);
+letters_and_indices build_list(const std::string &line);
+
 
 struct wrong_fn // osäker på syftet av wrong_fn
 {
