@@ -11,6 +11,9 @@
  */
 std::vector<std::string> getFiveLetterWords(const string& filename) {
     std::ifstream file(filename);
+    if(!file.is_open()) {
+        std::cerr << "File '" << filename << "' does not exist";
+    }
     std::string word;
     std::vector<std::string> fiveLetterWords;
 
