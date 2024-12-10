@@ -1,4 +1,5 @@
-#include "wordle_solver.h"
+#include "filters.h"
+#include "input_handler.h"
 #include <cassert>
 #include <iostream>
 #include <algorithm>
@@ -57,6 +58,12 @@ bool test_contains()
     assert(!inv("ahjbc")); //FALSE, some letters are grey
     assert(!inv("afgde")); //FALSE, all letters gray, different indexes
     assert(no_grey("abcde")); //If no grey, all should pass
+
+    //TEST toLowerCase
+    std::string bigLetters{"ThIs has SoMe wEIrd LETTERS"};
+    std::string smallLetters{"this has some weird letters"};
+    toLowerCase(bigLetters);
+    assert(bigLetters == smallLetters);
     
     return true;
 }

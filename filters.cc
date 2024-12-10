@@ -1,8 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <algorithm>
-#include <regex>
-
 #include "filters.h"
 
 /**

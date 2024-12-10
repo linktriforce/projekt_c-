@@ -3,6 +3,9 @@
 #include <vector>
 #include <sstream>
 #include <regex>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
 
 using std::string;
 using size_type = string::size_type;

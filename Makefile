@@ -31,11 +31,9 @@ PROGS = $(OBJ_DIR)/main $(OBJ_DIR)/preprocessor
 
 all: $(PROGS)
 
-test_wordle_solver: test_wordle_solver.o wordle_solver.o
+test_wordle_solver: test_wordle_solver.o filters.o input_handler.o
 
-main: main.o wordle_solver.o
-
-preprocessor: preprocessor.o
+main: main.o filters.o input_handler.o
 
 # Targets rely on implicit rules for compiling and linking
 
