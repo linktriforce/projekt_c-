@@ -77,8 +77,8 @@ int main()
 {
     std::cout << "Enter path to file: " << std::endl;
     string inputFile;
-    std::cin >> inputFile;
-    std::vector<string> possible_words(getFiveLetterWords(inputFile));
+    std::getline(std::cin, inputFile);
+    std::vector<string> possible_words{getFiveLetterWords(inputFile)};
     do
     {
         auto tiles = prompt();

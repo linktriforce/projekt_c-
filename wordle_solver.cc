@@ -11,9 +11,11 @@
  */
 std::vector<std::string> getFiveLetterWords(const string& filename) {
     std::ifstream file(filename);
+
     if(!file.is_open()) {
         std::cerr << "File '" << filename << "' does not exist";
     }
+
     std::string word;
     std::vector<std::string> fiveLetterWords;
 
@@ -21,6 +23,7 @@ std::vector<std::string> getFiveLetterWords(const string& filename) {
 
     while(file >> word) {
         if (std::regex_match(word, req)) {
+            std::cout << word << std::endl;
             toLowerCase(word);
             fiveLetterWords.push_back(word);
         }
