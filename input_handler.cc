@@ -73,3 +73,16 @@ std::tuple<std::string, letters_and_indices, letters_and_indices> prompt()
 
     return {wrong, corr, misp};
 }
+
+std::vector<std::string> promptFileName() {
+    std::cout << "Enter path to word list file (press Enter to use default list): " << std::endl;
+    string inputFile;
+    std::getline(std::cin, inputFile);
+
+    if(inputFile == "") {
+        inputFile = defaultTextFile;
+    }
+
+    std::vector<string> possible_words{getFiveLetterWords(inputFile)};
+    return possible_words;
+}

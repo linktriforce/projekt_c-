@@ -5,10 +5,8 @@ using std::string;
 
 int main()
 {
-    std::cout << "Enter path to file: " << std::endl;
-    string inputFile;
-    std::getline(std::cin, inputFile);
-    std::vector<string> possible_words{getFiveLetterWords(inputFile)};
+    std::vector<string> possible_words{promptFileName()};
+    
     do
     {
         auto tiles = prompt();

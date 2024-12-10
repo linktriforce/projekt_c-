@@ -9,6 +9,9 @@ using std::string;
 using size_type = string::size_type;
 using letters_and_indices = std::map<size_type, string>;
 
+const std::string defaultTextFile = "dict-words.txt";
+
+std::vector<std::string> promptFileName();
 void toLowerCase(std::string &s);
 std::vector<std::string> getFiveLetterWords(const string& filename);
 bool anotherIteration();
