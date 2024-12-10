@@ -1,4 +1,5 @@
 #include "input_handler.h"
+#include "filters.h"
 
 void toLowerCase(std::string &s)
 {

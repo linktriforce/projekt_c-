@@ -1,6 +1,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <regex>
 
 using std::string;
 using size_type = string::size_type;
