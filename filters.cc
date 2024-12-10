@@ -3,8 +3,7 @@
 #include <algorithm>
 #include <regex>
 
-#include "wordle_solver.h"
-
+#include "filters.h"
 
 /**
  * Check for gray tiles
@@ -46,6 +45,10 @@ bool contains_but_not_at(const string &s, char c, size_type pos)
     return s.find(c) != string::npos && s.find(c) != pos;
 }
 
+/**
+ * Converts user input to the required data structure used in the filter functors
+ * @return letters_and_indices
+ */
 letters_and_indices build_list(const string &line)
 {
     letters_and_indices map;
