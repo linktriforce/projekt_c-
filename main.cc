@@ -108,7 +108,7 @@ bool anotherIteration()
         std::getline(std::cin, keepCheating);
         toLowerCase(keepCheating);
         std::cout << "Wrong input! Try again.\n";
-    } while (keepCheating != "y" && keepCheating != "n")
+    } while (keepCheating != "y" && keepCheating != "n");
 
             return keepCheating == "y";
 }
