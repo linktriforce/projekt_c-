@@ -17,7 +17,7 @@ bool contains_at(const string &s, char c, size_type pos);
 bool contains_but_not_at(const string &s, char c, size_type pos);
 letters_and_indices build_list(const std::string &line);
 
-struct wrong_fn // osäker på syftet av wrong_fn
+struct wrong_fn
 {
     wrong_fn(const string &letters) : l{letters} {}
     bool operator()(const string &c);
