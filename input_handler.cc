@@ -56,29 +56,6 @@ bool anotherIteration()
             return keepCheating == "y";
 }
 
-letters_and_indices build_list(const string &line)
-{
-    letters_and_indices map;
-    std::stringstream ss(line);
-
-    int index;
-    while (ss >> index)
-    {
-        string letter;
-        if (ss >> letter)
-        {
-            map[index] += letter;
-        }
-    }
-
-    for (const auto &pair : map)
-    {
-        std::cout << "Index: " << pair.first << ", Value: " << pair.second << std::endl;
-    }
-
-    return map;
-}
-
 std::tuple<std::string, letters_and_indices, letters_and_indices> prompt()
 {
     std::string wrong;
