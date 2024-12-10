@@ -18,15 +18,18 @@ bool test_contains()
     std::string word_first = "abcde";
     std::string word_second = "efghi";
 
+    //TEST contains_any_of
     assert(contains_any_of(word_first, word_second));
     assert(!contains_any_of("", word_second)); // False: empty string
     assert(contains_any_of(word_first, "bghjt")); //True, b is in the word
     assert(contains_any_of(word_first, "")); //True, no letters are forbidden
 
+    //TEST contains_at
     assert(contains_at(word_first, 'a', 0)); //True
     assert(!contains_at(word_first, 'a', 1)); //False: Contains 'a' but wrong position
     assert(!contains_at(word_first, 'z', 0)); // False: 'z' doesn't exist
 
+    //TEST contains_but_not_at
     assert(contains_but_not_at(word_first, 'a', 2)); //True
     assert(!contains_but_not_at(word_first, 'a', 0)); //False: Contains 'a' but on correct position
     assert(!contains_but_not_at(word_first, 'f', 3)); //False: Doesn't contain 'f' at all.
@@ -34,11 +37,11 @@ bool test_contains()
     //TEST correct_fn
     letters_and_indices correct;
     correct.insert(wordpair(1, "a"));
-    correct.insert(wordpair(2, "b"));
+    correct.insert(wordpair(4, "o"));
     correct_fn cfn{correct};
 
-    assert(cfn("cabf"));
-    assert(!cfn("acfb"));
+    assert(cfn("kazoo")); //TRUE, a and o on right place
+    assert(!cfn("kazoh")); //FALSE, index 4 not an o
 
     //TEST misplaced_fn
     letters_and_indices misplaced;
@@ -50,7 +53,7 @@ bool test_contains()
     assert(!mfn("habcf")); //FALSE: g is not in the word at all
     assert(!mfn("abcgh")); //FALSE: a is in the given index
 
-    //TEST invalid_letters
+    //TEST wrong_fn
     wrong_fn inv{"abcdegf"};
     wrong_fn no_grey("");
 
