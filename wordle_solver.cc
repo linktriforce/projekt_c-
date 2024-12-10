@@ -5,38 +5,6 @@
 
 #include "wordle_solver.h"
 
-/**
- * Reads the file and finds all five letter words
- * @return std::vector<std::string> containing five letter words
- */
-std::vector<std::string> getFiveLetterWords(const string &filename)
-{
-    std::ifstream file(filename);
-
-    if (!file.is_open())
-    {
-        std::cerr << "File '" << filename << "' does not exist";
-    }
-
-    std::string word;
-    std::vector<std::string> fiveLetterWords;
-
-    std::regex req("^[a-zA-Z]{5}$");
-
-    while (file >> word)
-    {
-        if (std::regex_match(word, req))
-        {
-            std::transform(word.begin(), word.end(), word.begin(), [](unsigned char c) { 
-                return std::tolower(c); 
-            });
-
-            fiveLetterWords.push_back(word);
-        }
-    }
-    
-    return fiveLetterWords;
-}
 
 /**
  * Check for gray tiles
